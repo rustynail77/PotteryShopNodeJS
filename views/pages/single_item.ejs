@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head'); %>
+<body>
+    <%- include('../partials/header'); %>
+    <div id="product-content">
+        <div class="image-box">
+            <img class="item-image" src='<%=item.feat_img%>'>
+            <div class="imgGallery">
+                <% item.img_gallery.forEach(img=>{ %>
+                    <img class="galImgs" src="<%=img %>">
+                <% }); %>
+            </div>
+        </div>
+        <div class="product-text">
+            <h2><%=item.prod_name%></h2>
+            <p><%=item.description%></p>
+            <div class="prev-price"><%=item.orig_price%> ILS</div>
+            <div><%=item.disc_price%> ILS</div>  
+            <div>Quantity in stock: <%=item.quantity%></div>
+            <br>    
+            <% if (item.quantity > 0) { %>
+                <button onclick='addToCart(<%=item.prod_id%>)'>Add to cart</button>
+            <% } else { %>
+                <p>Item is out of stock</p>
+            <% } %>
+            <br><br>
+            <!-- <button onclick="buyItemsInCart()">Buy items in Cart</button> -->
+            
+            <form action="/cart" method="post">
+                <input name="hidden" id="hidden" class="hide-me" type="text">
+                <input type="submit" class="checkout-button" value='Buy items in cart'>
+            </form>
+           
+            <button class="clear-button" onclick='clearCart()'>Empty my cart</button>
+
+        </div>
+    </div>
+    <%- include('../partials/footer'); %>
+</body>
+<script type="text/javascript" src="/functions.js"></script>
+</html>

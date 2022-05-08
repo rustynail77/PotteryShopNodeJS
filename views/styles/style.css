@@ -1,0 +1,299 @@
+* {
+  font-family: "Varela Round", sans-serif;
+  box-sizing: border-box;
+  transition: all 0.5s ease-in-out;
+}
+
+:root {
+  --main-green:#6b9e7e;
+  --light-green:#e1f7e3;
+}
+
+body {
+  margin: 0;
+  margin-top: 20px;
+  background-color: var(--light-green);
+  background-image: url("../assets/pat12.png");
+}
+
+header {
+  z-index: 10;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  padding-right: 70px;
+  z-index: 11;
+}
+
+.burgIcon {
+  display: none;
+}
+
+nav > a > img {
+  width: 100px;
+  padding: 15px;
+}
+
+nav > ul {
+  display: inline-flex;
+  list-style: none;
+  padding: 0;
+  width: max-content;
+}
+
+nav > ul > li {
+  margin-right: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-color: var(--light-green);
+  padding: 5%;
+  min-width: max-content;
+}
+
+nav > ul > li > a {
+  text-decoration: none;
+  color: var(--main-green);
+}
+
+.heading-title {
+  color: rgb(153, 153, 153);
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-left: calc(5% + 130px);
+  padding-right: 5%;
+  font-size: 38px;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.content {
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+h2 {
+  font-size: 2em;
+  color:  var(--main-green);
+  text-align: center;
+}
+
+h4 {
+  text-align: center;
+}
+
+#index-content {
+  font-size: 22px;
+  text-align: center;
+}
+
+#products-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.product {
+  margin: 20px 10px 0 10px;
+  background-color: var(--main-green);
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  padding-bottom: 10px;
+  width: 250px;
+  box-shadow: inset 0 0 100px black;
+  border-radius: 15px;
+
+}
+
+.product:hover {
+  transform: scale(1.05);
+}
+
+.product > img {
+  width: 250px;
+  max-height: 250px;
+  object-fit: cover;
+}
+
+.product > h3 {
+  font-size: 22px;
+}
+
+.product > button, .product > form > input  {
+  background-color: var(--light-green);
+  color: var(--main-green);
+  font-weight: bold;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.product > button:hover {
+  cursor: pointer;
+}
+
+.prev-price {
+  color: rgb(168, 168, 168);
+  text-decoration: line-through;
+  margin-left: 5px;
+  font-size: 0.8em;
+}
+
+#product-content {
+  display: flex;
+  padding-top: 20vh;
+  text-align: center;
+
+}
+
+.image-box {
+  width: 60vw;
+}
+
+.product-text {
+  padding-top: 5%;
+  width: 40vw;
+  text-align: left;
+}
+.product-text > h2 {
+  text-align: left;
+}
+
+.item-image {
+  max-width: 30%;
+  height: 50vh;
+  border: double gray 10px;
+  border-radius: 15px;
+  padding: 5px;
+  z-index: -1;
+  margin-bottom: 10px;
+}
+
+.item-image:hover {
+  transform: scale(1.05);
+}
+
+.galImgs {
+  width: 150px;
+  height: 150px;
+  margin-left: 10px;
+}
+
+.clear-button {
+  margin-top: 5%;
+  color: red;
+}
+
+/* .galImgs:hover {
+  cursor: pointer;
+} */
+
+.hide-me {
+  display: none;
+}
+
+.about-content {
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: center;
+}
+
+footer {
+  background-color: white;
+  color:  var(--main-green);
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  padding-top: 10px;
+}
+
+.cart-items {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin: 20px;
+}
+
+.cart-items > img {
+  width: 100px;
+  height: 100px;
+  border-radius:10px;
+  margin-right: 20px;
+}
+.cart-items > h3{
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 629px) {
+  /* for widths less than or equal to 629 pixels */
+  .content {
+    padding-top: 30%;
+  }
+
+  body {
+    margin-top:0;
+  }
+
+  .heading-title {
+    font-size: 1.5em;
+    padding: 1%;
+  }
+
+  .nav-tabs {
+    overflow: hidden;
+    position: absolute;
+    top: 90px;
+    width: 50%;
+    right:0;
+  }
+
+  nav > ul > li {
+    background-color:white;
+  }
+
+  .nav-tabs > li > a {
+    font-size:3em;
+  }
+
+  #myLinks {
+    display:none;
+  }
+
+  .burgIcon {
+    color: var(--main-green);
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: 40%;
+    height: 50px;
+  }
+
+  .galImgs {
+    width: 100px;
+    height: 100px;
+  }
+
+  .item-image {
+    max-width: 90%;
+  }
+
+  .about-content {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+}

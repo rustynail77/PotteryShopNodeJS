@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head'); %>
+<body>
+    <%- include('../partials/header'); %>
+    <%  let sum = 0;
+            items.forEach(item=>sum+=item.disc_price); %>
+    <div class="content">
+        <div class="about-content">
+            <h2>Your Shopping Cart's total is: <%=sum%> ILS</h2>
+            <% items.forEach((item)=>{ %>
+                <div class="cart-items">
+                    <img src="<%=item.feat_img%>">
+                    <h3><%=item.prod_name%></h3>
+                    <div>Price: <%=item.disc_price%> ILS</div>
+                </div>
+            <% }); %>
+            <button onclick="payUp()">Pay up!</button>
+        </div>
+    </div>
+    <%- include('../partials/footer'); %>
+</body>
+<script type="text/javascript" src="/functions.js"></script>
+</html>

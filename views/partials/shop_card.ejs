@@ -1,0 +1,14 @@
+<script type="text/javascript" src="/functions.js"></script>
+
+<div class="product">
+    <% if (item.feat_img) { %>
+        <img src='<%=item.feat_img%>'>
+    <% } %>
+    <h3><%=item.prod_name%></h3>
+    <div class="prev-price"><%=item.orig_price%> ILS</div>
+    <div><%=item.disc_price%> ILS</div>
+    <p><%=item.description%></p>
+    <div>Quantity for sale:<%=item.quantity%></div>
+    <br>
+    <button onclick="goToSingle(<%=item.prod_id%>)">Have a look!</button>
+</div>
