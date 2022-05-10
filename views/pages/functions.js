@@ -6,8 +6,8 @@ function addToCart (item) {
         alert('Item added to cart successfully');
         localStorage.setItem('theCart', JSON.stringify(myCart));
     };
-    document.getElementById('hidden').value = myCart;
-    console.log(document.getElementById('hidden').value);
+    // document.getElementById('hidden').value = myCart;
+    // console.log(document.getElementById('hidden').value);
 }
 
 function clearCart () {
@@ -15,12 +15,6 @@ function clearCart () {
         localStorage.clear();
         document.getElementById('hidden').value = '';
     };
-}
-
-function payUp () {
-    localStorage.clear();
-    alert('Thank you for shopping!');
-    location.href="/";
 }
 
 function goToSingle(item_id) {
@@ -31,17 +25,13 @@ function goToSingle(item_id) {
     })   
 }
 
-// function buyItemsInCart() {
-//     let cartItems = JSON.parse(localStorage.getItem('theCart'));
-//     fetch('http://localhost:5001/cart',{
-//         method: 'POST',
-//         headers:{
-//             'Content-type':'application/json'
-//         },
-//         body: JSON.stringify({cartItems})
-//     })
-//     .then((data) => window.location.href=data.url)
-//     .catch(err=>{
-//         console.log(err);
-//     })
-// }
+function buyItemsInCart() {
+    let cartItems = JSON.parse(localStorage.getItem('theCart')) || [];
+    if (cartItems.length==0) {
+        location.href="/empty-cart";
+    } else {
+        location.href="/cart";
+    }
+}
+    
+    

@@ -57,6 +57,10 @@ app.get('/functions.js', (req, res) => {
     res.sendFile(__dirname+'/views/pages/functions.js')
 })
 
+app.get('/cart-page.js', (req, res) => {
+    res.sendFile(__dirname+'/views/pages/cart-page.js')
+})
+
 app.get('/assets/:img', (req, res) => {
     res.sendFile(__dirname+'/views/assets/'+req.params.img)
 })
@@ -81,41 +85,44 @@ app.get('/single_item',(req,res)=>{
     })
 })
 
+app.post('/cart',(req,res)=>{
+    let cart = req.body.cartItems;
+    if (cart.length!==0) {
+        console.log('cart =',cart);
+        getCartItems(cart)
+        .then(products=>
+            res.json(products)
+        )
+        .catch(err => {
+            console.log(err);
+            res.json({message:err.message});
+        })
+    } else {
+        res.render('pages/empty-cart');
+    }
+})
+
+app.get('/cart',(req,res)=>{
+    res.render('pages/cart');  
+})
+
+app.get('/empty-cart',(req,res)=>{
+    res.render('pages/empty-cart');  
+})
+
 // app.post('/cart',(req,res)=>{
-//     let cart = req.body.cartItems;
-//     if (cart.length!==0) {
-//         // let cart = cartStr.split(',').map((item)=>parseInt(item,10));
+//     let cartStr = req.body.hidden;
+//     if (cartStr!=='') {
+//         let cart = cartStr.split(',').map((item)=>parseInt(item,10));
 //         console.log('cart =',cart);
 //         getCartItems(cart)
-//         .then(products=>
-//             res.render('pages/cart',{items:products})
-//         )
-//         .catch(err => {
-//             console.log(err);
-//             res.json({message:err.message});
+//         .then(cart=>{
+//             res.render('pages/cart',{items:cart});
 //         })
 //     } else {
 //         res.render('pages/empty-cart')
 //     }
 // })
-
-// app.get('/cart',(req,res)=>{
-//     res.render('pages/cart',{items:products});  
-// })
-
-app.post('/cart',(req,res)=>{
-    let cartStr = req.body.hidden;
-    if (cartStr!=='') {
-        let cart = cartStr.split(',').map((item)=>parseInt(item,10));
-        console.log('cart =',cart);
-        getCartItems(cart)
-        .then(cart=>{
-            res.render('pages/cart',{items:cart});
-        })
-    } else {
-        res.render('pages/empty-cart')
-    }
-})
 
 
 
